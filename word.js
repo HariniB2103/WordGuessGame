@@ -1,4 +1,4 @@
-// Word and Hints Object
+
 const options = {
   aroma: "Pleasing smell",
   pepper: "Salt's partner",
@@ -13,7 +13,7 @@ const options = {
   machine: "Device or appliance",
 };
 
-// Initial References
+
 const message = document.getElementById("message");
 const hintRef = document.querySelector(".hint-ref");
 const controls = document.querySelector(".controls-container");
@@ -28,27 +28,23 @@ let randomWord = "",
 let winCount = 0,
   lossCount = 0;
 
-// Generate random value from an array
 const generateRandomValue = (array) => Math.floor(Math.random() * array.length);
 
-// Block all the buttons
 const blocker = () => {
   document.querySelectorAll(".letters").forEach(button => button.disabled = true);
   stopGame();
 };
 
-// Start Game
 startBtn.addEventListener("click", () => {
   controls.classList.add("hide");
   init();
 });
 
-// Stop Game
 const stopGame = () => {
   controls.classList.remove("hide");
 };
 
-// Generate Word Function
+
 const generateWord = () => {
   letterContainer.classList.remove("hide");
   userInpSection.innerHTML = "";
@@ -59,7 +55,7 @@ const generateWord = () => {
   userInpSection.innerHTML += `<div id='chanceCount'>Chances Left: ${lossCount}</div>`;
 };
 
-// Initialize Game
+
 const init = () => {
   winCount = 0;
   lossCount = 5;
@@ -71,7 +67,7 @@ const init = () => {
   letterContainer.innerHTML = "";
   generateWord();
 
-  // Create letter buttons
+  
   for (let i = 65; i < 91; i++) {
     let button = document.createElement("button");
     button.classList.add("letters");
@@ -85,7 +81,6 @@ const init = () => {
   }
 };
 
-// Handle letter click event
 const handleLetterClick = (button) => {
   message.innerText = `Correct Letter`;
   message.style.color = "#008000";
